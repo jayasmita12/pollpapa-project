@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .navlink{
+        @apply text-white text-lg font-bold relative self-center hover:text-[#e6b294] duration-300
+    }
+    .navlink::after{
+        @apply absolute content-[""] bg-[#e6b294]   left-0 w-[0%] h-[2px] -bottom-2 duration-300 
+    }
+    .navlink:hover::after{
+        @apply w-full 
+    }
+
+}
+
