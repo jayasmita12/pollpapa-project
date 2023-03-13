@@ -15,3 +15,12 @@
 
 }
 
+@layer base {
+    .font-outline-2 {
+      -webkit-text-stroke: 1px #f0d1af;
+    }
+    /* .font-outline-4 {
+      -webkit-text-stroke: 4px black;
+    } */
+  }
+

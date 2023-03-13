@@ -32,7 +32,7 @@
     pin:true
   })
  
-  let tl2 =  gsap.timeline()
+let tl2 =  gsap.timeline()
 
   tl2.from(".likeright",{
     xPercent:100,

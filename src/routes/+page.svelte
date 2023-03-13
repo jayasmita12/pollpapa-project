@@ -2,6 +2,7 @@
   import Hero from "$lib/components/Hero.svelte";
   import gsap from "gsap";
   import { onMount } from "svelte";
+  import WhoWeAre from "$lib/components/WhoWeAre.svelte";
 
   onMount(() => {
     cursorfunction();
@@ -32,6 +33,7 @@
 
 <main>
   <Hero />
+  <WhoWeAre/>
   <div class="ball w-4 h-4 fixed top-0 left-0 rounded-full bg-[#e6b294]" />
 </main>
 
