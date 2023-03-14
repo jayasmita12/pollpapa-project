@@ -9,20 +9,30 @@ import ScrollSmoother from "$lib/script/gsap/ScrollSmoother";
   import { onMount } from "svelte";
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger,ScrollSmoother);
-    scrollSmooth();
+    paralleX();
   });
-  const scrollSmooth=()=>{
-    let smoother = ScrollSmoother.create({
-  smooth: 2,   
-  effects: true
-});
+  const paralleX=()=>{
+   let tl = gsap.timeline({
+    ScrollTrigger:{
+    // animation:tl,
+    trigger:".main",
+    start:"center center",
+    end:"+=2000",
+    scrub:true,
+    pin:".part2"
+   }
+})
+tl.to(".part2",{duration:5,y:-300})
+   
+
+   
   }; 
 
 </script>
 
 
-
-<div class="max-w-full  space-y-10 rounded-b-[5rem] bg-black/70 pt-44">
+<div class="main">
+<div class="part1 max-w-full  space-y-10 rounded-b-[5rem] bg-black/70 pt-44">
     <div class="max-w-screen-xl mx-auto  rounded-[5rem] px-20 flex  justify-center items-center  bg-white ">
         <div class="w-full space-y-6 ">
           <h2 class="text-7xl font-bold text-black/80">
@@ -40,24 +50,24 @@ import ScrollSmoother from "$lib/script/gsap/ScrollSmoother";
             />
           </div>
     </div>
+    <div>
+      <VoiceCount/>
+    </div>
 
-      <div>
-        <VoiceCount/>
-      </div>
+    <div>
+      <Features/>
+    </div>
 
-      <div>
-        <Features/>
-      </div>
+    <div>
+      <Subscribe/>
+    </div>
 
-      <div>
-        <Subscribe/>
-      </div>
 </div>
 
-<div>
+<div class="part2">
     <BuildingPartners/>
 </div>
-
+</div>
 <!-- <div>
     <Footer/>
 </div> -->
