@@ -3,6 +3,7 @@
     import ScrollTrigger from "$lib/script/gsap/ScrollTrigger";
     import SplitText from "$lib/script/gsap/SplitText";
     import { onMount } from "svelte";
+    import Scroll from "./Scroll.svelte";
     onMount(()=>{
         gsap.registerPlugin(ScrollTrigger,SplitText)
         scroll()
@@ -77,7 +78,7 @@
       trigger: ".opinion",
       pin: true,
       scrub:0.5,
-      scale:-1.5,
+      scale:-0.5,
       start: "top top",
       end : "+=100%",
       toggleActions: "play pause reverse reset",
@@ -85,11 +86,15 @@
   })
   tl2.to(".opinion",{
     scale:3,
-    opacity:1,
-    delay:0.2,
-    backgroundColor:"#f0d1af",
-    pin:true
+    opacity:0,
+    backgroundColor:"#f0d1af", 
   })
+  tl2.set(".opinion",{
+    scale:1
+  })
+  
+ 
+ 
 
 
 
@@ -107,7 +112,7 @@ ScrollTrigger.batch(animateLines.lines, {
     });
   },
   onLeaveBack: batch => gsap.to(batch, {opacity: 0, yPercent: 100}),
-  start: "top 60%",
+  start: "top 60%", 
 });
         
 }
@@ -125,14 +130,16 @@ ScrollTrigger.batch(animateLines.lines, {
         <div class="w-full flex justify-center relative -top-32  original-man ">
             <img src="https://pollpapa.com/wp-content/themes/pollpapa/assets/img/home/advanced/7@2x.webp"  alt="">
         </div>
-    </section>
-    <div class="opinion  flex-col h-[100vh] max-w-full bg-black/70 mx-auto flex justify-center items-center">
-        <div class="max-w-[60%] text-center opinion-text">
+</section>
+    <div class="opinion  flex-col h-[100vh] max-w-full  bg-black/70 mx-auto flex justify-center items-center">
+        <div class="max-w-[60%]  text-center opinion-text">
             <h1 class="text-[11rem] font-thin uppercase text-[#f0d1af]" style="line-height: 0.9;">Your Opinion matters</h1>
         </div>
     </div>
-    <div class="inner-div  h-screen  max-w-[55rem] mx-[20%] flex justify-center items-center absolute z-20 overflow-hidden">
-        <div class="w-full h-full flex justify-center items-center">
-            <h2 class="inner-text text-8xl font-bold text-black/70">Stop guessing what people want. Just ask them.</h2>
+    <div class="inner-div bg-[#f0d1af]  h-screen  max-w-full flex  justify-center items-center  ">
+        <div class="w-[55rem] h-full   flex justify-center items-center">
+            <h2 class="inner-text text-8xl font-bold text-black/80">Stop guessing what people want. Just ask them.</h2>
         </div>
     </div>
+    
+
